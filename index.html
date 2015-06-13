@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/png" href="favicon.png">
+		<title>Waitstaff Calculator</title>
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="js/respond.js"></script>
+		<script>
+	    // Picture element HTML5 shiv
+	    document.createElement( "picture" );
+	    </script>
+		<![endif]-->
+		<link rel="stylesheet" href="css/styles.css" type="text/css">
+	</head>
+	<body>
+		<header class="main-header">
+			<div class="content-width">
+				<h1>Waitstaff Calculator</h1>
+			</div>
+		</header>
+		<main class="main-content">
+			<div class="content-width">
+				<div class="col col-left">
+					<div class="block">
+						<header class="block-header">
+							<h2>Enter the meal details</h2>
+						</header>
+						<div class="block-content">
+							<form name="waitstaffForm">
+								<div class="form-item">
+									<label>Base meal price: $</label>
+									<input type="number" name="basePrice">
+								</div>
+								<div class="form-item">
+									<label>Tax rate: %</label>
+									<input type="number" name="taxRate">
+								</div>
+								<div class="form-item">
+									<label>Tip percentage: %</label>
+									<input type="number" name="tipPercentage">
+								</div>
+								<div class="form-buttons">
+									<input type="submit" class="btn btn-submit" value="submit">
+									<button class="btn btn-cancel">Cancel</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col col-right">
+					<div class="block customer-charges">
+						<header class="block-header">
+							<h2>Customer Charges</h2>
+						</header>
+						<div class="block-content">
+							<span class="label">Subtotal</span><br>
+							<span class="label">Tip</span>
+							<div class="total">
+								<span class="label">Total</span>
+							</div>
+						</div>
+					</div>
+					<div class="block">
+						<header class="block-header">
+							<h2>My Earnings Info</h2>
+						</header>
+						<div class="block-content">
+							<span class="label">Tip Total:</span><br>
+							<span class="label">Meal Count:</span><br>
+							<span class="label">Average Tip Per Meal:</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="content-width">
+				<button class="btn btn-reset">Reset</button>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="js/app.js"></script>
+	</body>
+</html>

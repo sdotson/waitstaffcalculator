@@ -1,0 +1,22 @@
+::selection {
+	background-color: $bluegray;
+}
+::-moz-selection {
+	background-color: $bluegray;	
+}
+
+/* typography */
+body {
+	font-family: helvetica, sans-serif;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+p, ul, ol, blockquote {
+	margin-bottom: 21px;
+}
+
+h1, h2, h3, h4, h5 ,h6 {
+	line-height: 1.1;
+	margin-bottom: 21px;
+}
