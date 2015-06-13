@@ -13,12 +13,24 @@
 
 .btn-reset {
 	background-color: #d70026;
+
+	&:hover, &:focus {
+		background-color: #f3002b;
+	}
 }
 
 .btn-cancel {
+	  background-color: #bfbfbf;
 
+  &:hover, &:focus {
+		background-color: #cecece;
+	}
 }
 
 .btn-submit {
   background-color: #e69900;
+
+  &:hover, &:focus {
+  	background-color: #ffbe3b;
+  }
 }
