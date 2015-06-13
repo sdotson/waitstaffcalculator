@@ -30,3 +30,19 @@ input[type=number],input[type=text],input[type=tel],input[type=password] {
 		box-shadow: inset 10px 0px 0px 0px #00594d;
 	}
 }
+
+/* validation */
+.ng-submitted {
+	.ng-invalid {
+		-webkit-box-shadow: inset 10px 0px 0px 0px #d70026;
+		-moz-box-shadow: inset 10px 0px 0px 0px #d70026;
+		box-shadow: inset 10px 0px 0px 0px #d70026;
+		color: #d70026;
+
+		&:focus {
+			-webkit-box-shadow: inset 10px 0px 0px 0px #d70026;
+			-moz-box-shadow: inset 10px 0px 0px 0px #d70026;
+			box-shadow: inset 10px 0px 0px 0px #d70026;
+		}
+	}
+}
