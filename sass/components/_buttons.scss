@@ -9,6 +9,10 @@
 	color: #fff;
   font-weight: bold;
   cursor: pointer;
+
+  &:focus {
+  	outline: none;
+  }
 }
 
 .btn-reset {
