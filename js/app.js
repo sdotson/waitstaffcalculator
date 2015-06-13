@@ -51,6 +51,7 @@ angular.module('myApp',[])
 		$scope.reset = function() {
 			$scope.meals = [];
 			$scope.latestCustomer = '';
+			$scope.data = '';
 			$scope.mealForm.$setPristine();
 		};	
 
