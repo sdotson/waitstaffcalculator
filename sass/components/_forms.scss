@@ -12,6 +12,14 @@ label {
 	width: 50%;
 	display: inline-block;
 	text-align: right;
+
+	@media screen and (max-width: 400px) {
+		display: block;
+		width: 100%;
+		text-align: left;
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
 }
 
 input[type=number],input[type=text],input[type=tel],input[type=password] {
@@ -19,9 +27,14 @@ input[type=number],input[type=text],input[type=tel],input[type=password] {
 	padding: 8px 15px;
 	font-size: 16px;
 	border: none;
+	width: 100px;
 	-moz-transition: all 250ms ease-out;
 	-webkit-transition: all 250ms ease-out;
 	transition: all 250ms ease-out;
+
+	@media screen and (max-width: 400px) {
+		width: 100%;
+	}
 
 	&:focus {
 		outline: none;

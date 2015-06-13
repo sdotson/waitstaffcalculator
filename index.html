@@ -56,10 +56,10 @@
 							<h2>Customer Charges</h2>
 						</header>
 						<div class="block-content">
-							<span class="label">Subtotal:</span> {{latestCustomer.subTotal | currency}}<br>
-							<span class="label">Tip:</span> {{latestCustomer.tip | currency}}
+							<span class="label">Subtotal:</span> <strong ng-bind="latestCustomer.subTotal | currency"></strong><br>
+							<span class="label">Tip:</span> <strong ng-bind="latestCustomer.tip | currency"></strong>
 							<div class="total">
-								<span class="label">Total:</span> {{latestCustomer.total | currency}}
+								<span class="label">Total:</span> <strong ng-bind="latestCustomer.total | currency"></strong>
 							</div>
 						</div>
 					</div>
@@ -68,9 +68,9 @@
 							<h2>My Earnings Info</h2>
 						</header>
 						<div class="block-content">
-							<span class="label">Tip Total:</span> {{ calculateTipTotal() | currency }}<br>
-							<span class="label">Meal Count:</span> {{ meals.length | number }}<br>
-							<span class="label">Average Tip Per Meal:</span> {{ calculateTipAverage() | currency }}
+							<span class="label">Tip Total:</span> <strong ng-bind="calculateTipTotal() | currency"></strong><br>
+							<span class="label">Meal Count:</span> <strong ng-bind="meals.length | number"></strong><br>
+							<span class="label">Average Tip Per Meal:</span> <strong ng-bind=" calculateTipAverage() | currency"></strong>
 						</div>
 					</div>
 				</div>
