@@ -3,17 +3,13 @@ angular.module('myApp',[])
 
 		function findTotal(obj, key) {
 			var total = 0;
-
 			for (var i = 0; i < obj.length; i++) {
-				total += obj[i].tip;
+				total += obj[i][key];
 			};
 			return total;
 		}
 
-
 		$scope.meals = [];
-		$scope.tipTotal;
-		$scope.latestCustomer;
 
 		$scope.calculateTipTotal = function() {
 			var tipTotal = findTotal($scope.meals, 'tip');
