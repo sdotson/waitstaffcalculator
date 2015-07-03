@@ -1,0 +1,21 @@
+/* nav */
+.nav {
+	ul {
+		margin: 0px;
+		list-style: none;
+	}
+	li {
+		display: inline-block;
+		border-right: 1px solid #999;
+		padding-right: 10px;
+
+		&:last-child {
+			padding-right: 0px;
+			border-right: none;
+		}
+	}
+
+	a {
+		color: #00594d;
+	}
+}
