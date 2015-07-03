@@ -1,4 +1,8 @@
-angular.module('myApp',[])
+angular.module('myApp',['ngRoute'])
+	.config(['$routeProvider', function($routeProvider) {
+
+	}])
+
 	.controller('CalculatorCtrl', function($scope) {
 
 		function findTotal(obj, key) {
