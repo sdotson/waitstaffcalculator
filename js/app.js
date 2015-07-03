@@ -1,30 +1,24 @@
 angular.module('myApp',['ngRoute'])
 	.config(['$routeProvider', function($routeProvider) {
-
+		$routeProvider.when('/', {
+      templateUrl : 'home.html',
+      controller : 'HomeCtrl'
+    })
+    .when('/newmeal', {
+      templateUrl : 'new-meal.html',
+      controller : 'NewMealCtrl'
+    })
+    .when('/myearnings', {
+      templateUrl : 'my-earnings.html',
+      controller : 'MyEarningsCtrl'
+    });
 	}])
 
-	.controller('CalculatorCtrl', function($scope) {
+	.controller('HomeCtrl', function($scope) {
 
-		function findTotal(obj, key) {
-			var total = 0;
-			for (var i = 0; i < obj.length; i++) {
-				total += obj[i][key];
-			};
-			return total;
-		}
+	})
 
-		$scope.meals = [];
-
-		$scope.calculateTipTotal = function() {
-			var tipTotal = findTotal($scope.meals, 'tip');
-			$scope.tipTotal = tipTotal;
-			return tipTotal;
-		};
-
-		$scope.calculateTipAverage = function() {
-			return $scope.tipTotal/$scope.meals.length || 0;
-		}
-
+	.controller('NewMealCtrl', function($scope) {
 		$scope.submitMeal = function(data) {
 			if ($scope.mealForm.$valid) {
 				var taxRate = data.taxRate/100,
@@ -48,16 +42,43 @@ angular.module('myApp',['ngRoute'])
 			};
 		};
 
+		$scope.cancel = function() {
+			$scope.data = '';
+			$scope.mealForm.$setPristine();
+		};
+	})
+
+	.controller('MyEarningsCtrl', function($scope) {
+
+		function findTotal(obj, key) {
+			var total = 0;
+			for (var i = 0; i < obj.length; i++) {
+				total += obj[i][key];
+			};
+			return total;
+		}
+
+		$scope.calculateTipTotal = function() {
+			var tipTotal = findTotal($scope.meals, 'tip');
+			$scope.tipTotal = tipTotal;
+			return tipTotal;
+		};
+
+		$scope.calculateTipAverage = function() {
+			return $scope.tipTotal/$scope.meals.length || 0;
+		}
+
 		$scope.reset = function() {
 			$scope.meals = [];
 			$scope.latestCustomer = '';
 			$scope.data = '';
 			$scope.mealForm.$setPristine();
-		};	
-
-		$scope.cancel = function() {
-			$scope.data = '';
-			$scope.mealForm.$setPristine();
 		};
+
+	})
+
+	.controller('CalculatorCtrl', function($scope) {
+
+		$scope.meals = [];	
 
 	});

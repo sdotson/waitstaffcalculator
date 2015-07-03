@@ -1,0 +1,37 @@
+<div class="block meal-details">
+	<header class="block-header">
+		<h2>Enter the meal details</h2>
+	</header>
+	<div class="block-content">
+		<form name="mealForm" ng-submit="submitMeal(data)" novalidate>
+			<div class="form-item">
+				<label>Base meal price: $</label>
+				<input type="number" name="basePrice" ng-model="data.basePrice" required>
+			</div>
+			<div class="form-item">
+				<label>Tax rate: %</label>
+				<input type="number" name="taxRate" ng-model="data.taxRate" required>
+			</div>
+			<div class="form-item">
+				<label>Tip percentage: %</label>
+				<input type="number" name="tipPercentage" ng-model="data.tipPercentage" required>
+			</div>
+			<div class="form-buttons">
+				<input type="submit" class="btn btn-submit" value="submit">
+				<button type="button" class="btn btn-cancel" ng-click="cancel()">cancel</button>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="block customer-charges">
+	<header class="block-header">
+		<h2>Customer Charges</h2>
+	</header>
+	<div class="block-content">
+		<span class="label">Subtotal:</span> <strong ng-bind="latestCustomer.subTotal | currency"></strong><br>
+		<span class="label">Tip:</span> <strong ng-bind="latestCustomer.tip | currency"></strong>
+		<div class="total">
+			<span class="label">Total:</span> <strong ng-bind="latestCustomer.total | currency"></strong>
+		</div>
+	</div>
+</div>

@@ -1,17 +1,1 @@
 /* main content section */
-.main-content {
-	margin-bottom: 30px;
-
-	@media screen and (max-width: 750px) {
-		margin-bottom: 0px;
-	}
-
-	.content-width {
-	  display: -webkit-flex;
-	  display: -ms-flexbox;
-	  display: flex;
-	  -webkit-flex-wrap: wrap;
-	  -ms-flex-wrap: wrap;
-	  flex-wrap: wrap;
-	}
-}
