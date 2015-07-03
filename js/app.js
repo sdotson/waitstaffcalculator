@@ -14,11 +14,18 @@ angular.module('myApp',['ngRoute'])
     });
 	}])
 
-	.controller('HomeCtrl', function($scope) {
+	.run(function($rootScope, $location) {
+		$rootScope.meals = [];
+		$rootScope.$on('$routeChangeError', function() {
+        $location.path('/error');
+    });
+	})
+
+	.controller('HomeCtrl', function($rootScope) {
 
 	})
 
-	.controller('NewMealCtrl', function($scope) {
+	.controller('NewMealCtrl', function($scope, $rootScope) {
 		$scope.submitMeal = function(data) {
 			if ($scope.mealForm.$valid) {
 				var taxRate = data.taxRate/100,
@@ -36,8 +43,8 @@ angular.module('myApp',['ngRoute'])
 						timestamp: new Date()
 					};
 
-				$scope.meals.push(newMeal);
-				$scope.latestCustomer = newMeal;
+				$rootScope.meals.push(newMeal);
+				$rootScope.latestCustomer = newMeal;
 
 			};
 		};
@@ -48,7 +55,7 @@ angular.module('myApp',['ngRoute'])
 		};
 	})
 
-	.controller('MyEarningsCtrl', function($scope) {
+	.controller('MyEarningsCtrl', function($scope,$rootScope) {
 
 		function findTotal(obj, key) {
 			var total = 0;
@@ -59,26 +66,20 @@ angular.module('myApp',['ngRoute'])
 		}
 
 		$scope.calculateTipTotal = function() {
-			var tipTotal = findTotal($scope.meals, 'tip');
+			var tipTotal = findTotal($rootScope.meals, 'tip');
 			$scope.tipTotal = tipTotal;
 			return tipTotal;
 		};
 
 		$scope.calculateTipAverage = function() {
-			return $scope.tipTotal/$scope.meals.length || 0;
+			return $scope.tipTotal/$rootScope.meals.length || 0;
 		}
 
 		$scope.reset = function() {
-			$scope.meals = [];
-			$scope.latestCustomer = '';
+			$rootScope.meals = [];
+			$rootScope.latestCustomer = '';
 			$scope.data = '';
 			$scope.mealForm.$setPristine();
 		};
 
 	})
-
-	.controller('CalculatorCtrl', function($scope) {
-
-		$scope.meals = [];	
-
-	});
