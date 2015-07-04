@@ -19,39 +19,14 @@ angular.module('myApp',['ngRoute'])
 		$rootScope.meals = [];
 	})
 
-	.controller('HomeCtrl', function($rootScope) {
-
-	})
-
+	.controller('HomeCtrl', HomeCtrl)
 	.controller('NewMealCtrl', NewMealCtrl)
+	.controller('MyEarningsCtrl', MyEarningsCtrl);
 
-	.controller('MyEarningsCtrl', function($scope,$rootScope) {
+function HomeCtrl() {}
 
-		function findTotal(obj, key) {
-			var total = 0;
-			for (var i = 0; i < obj.length; i++) {
-				total += obj[i][key];
-			};
-			return total;
-		}
 
-		$scope.calculateTipTotal = function() {
-			var tipTotal = findTotal($rootScope.meals, 'tip');
-			$scope.tipTotal = tipTotal;
-			return tipTotal;
-		};
-
-		$scope.calculateTipAverage = function() {
-			return $scope.tipTotal/$rootScope.meals.length || 0;
-		}
-
-		$scope.reset = function() {
-			$rootScope.meals = [];
-			$rootScope.latestCustomer = '';
-			$scope.data = '';
-		};
-
-	});
+NewMealCtrl.$inject = ['$scope','$rootScope'];
 
 function NewMealCtrl($scope, $rootScope) {
 	$scope.submitMeal = function(data) {
@@ -81,4 +56,34 @@ function NewMealCtrl($scope, $rootScope) {
 		$scope.data = '';
 		$scope.mealForm.$setPristine();
 	};
+}
+
+
+MyEarningsCtrl.$inject = ['$scope','$rootScope'];
+
+function MyEarningsCtrl($scope,$rootScope) {
+	function findTotal(obj, key) {
+		var total = 0;
+		for (var i = 0; i < obj.length; i++) {
+			total += obj[i][key];
+		};
+		return total;
+	}
+
+	$scope.calculateTipTotal = function() {
+		var tipTotal = findTotal($rootScope.meals, 'tip');
+		$scope.tipTotal = tipTotal;
+		return tipTotal;
+	};
+
+	$scope.calculateTipAverage = function() {
+		return $scope.tipTotal/$rootScope.meals.length || 0;
+	}
+
+	$scope.reset = function() {
+		$rootScope.meals = [];
+		$rootScope.latestCustomer = '';
+		$scope.data = '';
+	};
+
 }
