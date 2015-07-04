@@ -11,49 +11,19 @@ angular.module('myApp',['ngRoute'])
     .when('/myearnings', {
       templateUrl : 'my-earnings.html',
       controller : 'MyEarningsCtrl'
-    });
+    })
+    .otherwise({redirectTo: '/'});
 	}])
 
-	.run(function($rootScope, $location) {
+	.run(function($rootScope) {
 		$rootScope.meals = [];
-		$rootScope.$on('$routeChangeError', function() {
-        $location.path('/error');
-    });
 	})
 
 	.controller('HomeCtrl', function($rootScope) {
 
 	})
 
-	.controller('NewMealCtrl', function($scope, $rootScope) {
-		$scope.submitMeal = function(data) {
-			if ($scope.mealForm.$valid) {
-				var taxRate = data.taxRate/100,
-					tipPercentage = data.tipPercentage/100, 
-					subtotal = data.basePrice + data.basePrice * taxRate,
-					tip = subtotal * tipPercentage,
-					total = subtotal + tip,
-					newMeal = {
-						basePrice: data.basePrice,
-						taxRate: taxRate,
-						tipPercentage: tipPercentage,
-						subTotal: subtotal,
-						tip: tip,
-						total: total,
-						timestamp: new Date()
-					};
-
-				$rootScope.meals.push(newMeal);
-				$rootScope.latestCustomer = newMeal;
-
-			};
-		};
-
-		$scope.cancel = function() {
-			$scope.data = '';
-			$scope.mealForm.$setPristine();
-		};
-	})
+	.controller('NewMealCtrl', NewMealCtrl)
 
 	.controller('MyEarningsCtrl', function($scope,$rootScope) {
 
@@ -79,7 +49,36 @@ angular.module('myApp',['ngRoute'])
 			$rootScope.meals = [];
 			$rootScope.latestCustomer = '';
 			$scope.data = '';
-			$scope.mealForm.$setPristine();
 		};
 
-	})
+	});
+
+function NewMealCtrl($scope, $rootScope) {
+	$scope.submitMeal = function(data) {
+		if ($scope.mealForm.$valid) {
+			var taxRate = data.taxRate/100,
+				tipPercentage = data.tipPercentage/100, 
+				subtotal = data.basePrice + data.basePrice * taxRate,
+				tip = subtotal * tipPercentage,
+				total = subtotal + tip,
+				newMeal = {
+					basePrice: data.basePrice,
+					taxRate: taxRate,
+					tipPercentage: tipPercentage,
+					subTotal: subtotal,
+					tip: tip,
+					total: total,
+					timestamp: new Date()
+				};
+
+			$rootScope.meals.push(newMeal);
+			$rootScope.latestCustomer = newMeal;
+
+		};
+	};
+
+	$scope.cancel = function() {
+		$scope.data = '';
+		$scope.mealForm.$setPristine();
+	};
+}
