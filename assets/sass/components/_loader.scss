@@ -1,0 +1,28 @@
+/* content blocks */
+.block {
+
+	h2 {
+		margin-bottom: 0px;
+	}
+}
+
+.block-header {
+	padding: 5px 20px;
+  background-color: #00594d;
+	color: #fff;
+}
+
+.block-content {
+	padding: 15px 20px;
+	background-color: #daf2ef;
+}
+
+.meal-details, .my-earnings {
+	margin-bottom: 30px;
+}
+
+.label {
+	width: 50%;
+	display: inline-block;
+	text-align: right;
+}

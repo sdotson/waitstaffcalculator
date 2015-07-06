@@ -23,7 +23,7 @@ module.exports = function(grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'images/',
+                    cwd: 'assets/images/',
                     src: ['**/*.{png,jpg,gif}'],
                     dest: 'images/build/'
                 }]
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'css/styles.css': 'sass/styles.scss'
+                    'assets/css/styles.css': 'assets/sass/styles.scss'
                 }
             } 
         },
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
                 },
             },*/
             css: {
-                files: ['sass/*.scss', 'sass/*/*.scss'],
+                files: ['assets/sass/*.scss', 'assets/sass/*/*.scss'],
                 tasks: ['sass'],
                 options: {
                     spawn: false,
