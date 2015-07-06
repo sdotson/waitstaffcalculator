@@ -1,6 +1,5 @@
 /* content blocks */
 .block {
-
 	h2 {
 		margin-bottom: 0px;
 	}
@@ -26,3 +25,33 @@
 	display: inline-block;
 	text-align: right;
 }
+
+.main-view {
+	-webkit-transition:250ms linear all;
+  transition:250ms linear all;
+}
+
+.view-container { position:relative; min-height: 100%; }
+.main-view.ng-enter,
+.main-view.ng-leave {
+	-webkit-transition:250ms linear all;
+  transition:250ms linear all;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+.main-view.ng-enter { 
+	opacity:0; 
+	z-index:100; 
+	top: 50px;
+}
+.main-view.ng-enter.ng-enter-active { 
+	opacity:1; 
+	top: 0px;
+}
+.main-view.ng-leave { 
+	opacity:1; z-index:99; 
+}
+.main-view.ng-leave.ng-leave-active { opacity:0; }
